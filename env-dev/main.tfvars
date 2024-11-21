@@ -31,9 +31,9 @@ vpc = {
     db_subnet_cidr  = ["10.0.4.0/24", "10.0.5.0/24"]
     azs             = ["us-east-1a", "us-east-1b"]
 
-    default_vpc_id   = "vpc-0031cc952da0c7bfc"
+    default_vpc_id   = "vpc-00af01701e46a57bd"
     default_vpc_cidr = "172.31.0.0/16"
-    default_vpc_rt   = "rtb-0623fe36206b96d65"
+    default_vpc_rt   = "rtb-02a7108dbf29993ff"
   }
 }
 
@@ -48,7 +48,7 @@ eks = {
     eks_version = "1.31"
     node_groups = {
       ng1 = {
-        instance_type = ["t3.medium"]
+        instance_type = ["t2.medium"]
         capacity_type = "SPOT"
         node_min_size = 1
         node_max_size = 3

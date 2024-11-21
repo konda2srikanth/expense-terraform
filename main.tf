@@ -46,7 +46,7 @@
 # Creates VPC
 
 module "vpc" {
-  source   = "git::https://github.com/B58-CloudDevOps/tf-module-vpc.git"
+  source   = "git::https://github.com/konda2srikanth/tf-module-vpc.git"
   for_each = var.vpc
 
   vpc_cidr_block  = each.value["vpc_cidr_block"]
@@ -65,7 +65,7 @@ module "vpc" {
 # Creates RDS
 module "rds" {
   depends_on = [module.vpc]
-  source     = "git::https://github.com/B58-CloudDevOps/tf-module-rds.git"
+  source     = "git::https://github.com/konda2srikanth/tf-module-rds.git"
   for_each   = var.rds
 
   engine = each.value["engine"]
@@ -87,7 +87,7 @@ module "rds" {
 module "eks" {
   depends_on = [module.vpc, module.rds]
 
-  source   = "git::https://github.com/B58-CloudDevOps/tf-module-eks.git"
+  source   = "git::https://github.com/konda2srikanth/tf-module-eks.git"
   for_each = var.eks
 
   eks_version = "1.31" # each.value["eks_verison"] 
